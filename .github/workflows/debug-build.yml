@@ -1,0 +1,16 @@
+name: Xcode - Debug Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build Debug build using xcodebuild command
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: xcodebuild -sdk iphonesimulator -configuration Debug build
